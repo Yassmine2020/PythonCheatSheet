@@ -19,6 +19,7 @@ A Cheat Sheet 📜 to **revise** Python syntax in **less time**. Particularly us
   - [Strings](#strings)
   - [Datetimes](#datetime)
 - [Built-in Functions](#built-in-functions)
+- [Regex Operations](#regex-operations)
 - [Advanced Topics](#advanced-topics)
 - [Best Practices](#best-practices)
 - [Tips & Gotchas](#tips--gotchas)
@@ -226,7 +227,37 @@ df_2023 = df.loc[mask]
 # Setting datetime index
 df.set_index('date', inplace=True)
 ```
+# regex-operations
+```python
+# Patterns
+^ - Start of string
+$ - End of string
+\d - Digit [0-9]
+\w - Word character [a-zA-Z0-9_]
+\s - Whitespace
+[abc] - Character set
+[^abc] - Negated set
+* - 0 or more
++ - 1 or more
+? - 0 or 1
+{n} - Exactly n
+{n,} - n or more
+{n,m} - Between n and m
 
+# Common Functions
+re.match()   # Match at start
+re.search()  # Find anywhere
+re.findall() # Find all occurrences
+re.sub()     # Replace pattern
+re.split()   # Split by pattern
+
+# Examples
+text = "Date: 2024-01-08"
+re.findall(r'\d{4}-\d{2}-\d{2}', text)  # ['2024-01-08']
+re.sub(r'[^\w\s]', '', text)  # Remove special chars
+re.split(r'[\s,:]', text)  # Split by space/comma/colon
+re.search(r'(\d{4})-(\d{2})', text).groups()  # Extract groups
+```
 # Built-in Functions
 
 ```python
