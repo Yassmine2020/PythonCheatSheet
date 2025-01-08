@@ -46,7 +46,7 @@ nums.append(1)     # Add to end
 nums.insert(0,10)  # Add 10 from left (at index 0 which is start)
 nums.remove(3)     # Remove value
 nums.pop()         # Remove & return last element
-nums.sort()        # In-place sort (TimSort: O(n log n))
+nums.sort()        # In-place sort (TimSort: O(n log n))  # sort(key = ..., reverse=False), in case of a list of tuples!
 nums.reverse()     # In-place reverse
 nums.copy()        # Return shallow copy
 
@@ -190,6 +190,8 @@ s.isdigit()          # Check if all digits
 s.find('sub')        # Index of substring (-1 if not found)
 s.count('sub')       # Count occurrences
 s.replace('old', 'new')  # Replace all occurrences
+s.startswith('hi')    # Check prefix
+s.endswith('.com')    # Check suffix
 
 # ASCII Conversion
 ord('a')             # Char to ASCII (97)
