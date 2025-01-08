@@ -17,6 +17,7 @@ A Cheat Sheet 📜 to **revise** Python syntax in **less time**. Particularly us
   - [Sets](#sets)
   - [Tuples](#tuples)
   - [Strings](#strings)
+  - [Datetimes](#datetime)
 - [Built-in Functions](#built-in-functions)
 - [Advanced Topics](#advanced-topics)
 - [Best Practices](#best-practices)
@@ -226,7 +227,30 @@ abs(-5)              # Absolute value
 pow(2, 3)            # Power
 round(3.14159, 2)    # Round to decimals
 ```
+## Datetime:
+# Converting to datetime
+df['date'] = pd.to_datetime(df['date'])
 
+# Extracting components
+df['year'] = df['date'].dt.year
+df['month'] = df['date'].dt.month
+df['day'] = df['date'].dt.day
+df['weekday'] = df['date'].dt.day_name()
+
+# Date arithmetic
+df['next_day'] = df['date'] + pd.Timedelta(days=1)
+df['last_week'] = df['date'] - pd.Timedelta(weeks=1)
+
+# Resampling time series
+daily = df.resample('D').mean()  # Daily
+monthly = df.resample('M').sum() # Monthly
+
+# Filtering date ranges
+mask = (df['date'] >= '2023-01-01') & (df['date'] <= '2023-12-31')
+df_2023 = df.loc[mask]
+
+# Setting datetime index
+df.set_index('date', inplace=True)
 # Advanced Topics
 
 ## Custom Sorting with cmp_to_key
